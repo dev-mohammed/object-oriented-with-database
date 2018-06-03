@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../chain_gang/.idea/oop_with_db.iml" filepath="$PROJECT_DIR$/../chain_gang/.idea/oop_with_db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/chain_gang.iml" filepath="$PROJECT_DIR$/.idea/chain_gang.iml" />
+      <module fileurl="file://C:\xampp\htdocs\php_learn\chain_gang\.idea\oop_with_db.iml" filepath="C:\xampp\htdocs\php_learn\chain_gang\.idea\oop_with_db.iml" />
     </modules>
   </component>
 </project>
