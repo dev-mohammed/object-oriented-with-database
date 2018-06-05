@@ -1,6 +1,15 @@
 <?php
 
 class Bicycle{
+	
+	// -------- Start of Active Record Code ------
+	static public $database;
+	static public function set_database($database)
+	{
+		self::$database = $database;
+	}
+	// -------- End of Active Record Code --------
+	
 	public $brand;
 	public $model;
 	public $year;
