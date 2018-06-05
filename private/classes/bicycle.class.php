@@ -8,6 +8,19 @@ class Bicycle{
 	{
 		self::$database = $database;
 	}
+	
+	static public function find_by_sql($sql){
+		$result = self::$database->query($sql);
+		if(!$result){
+			exit("Database query failed.");
+		}
+		return $result;
+	}
+	
+	static public function find_all(){
+		$sql = "SELECT * FROM bicycles";
+		return self::find_by_sql($sql);
+	}
 	// -------- End of Active Record Code --------
 	
 	public $brand;
