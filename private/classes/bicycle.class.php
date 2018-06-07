@@ -16,8 +16,9 @@ class Bicycle{
 		}
 		// result into objects
 		$object_array = [];
+		
 		while($record = $result->fetch_assoc()){
-			$object_array = self::instantiate($record);
+			$object_array[] = self::instantiate($record);
 		}
 		$result->free();
 		return $object_array;
@@ -29,7 +30,7 @@ class Bicycle{
 	
 	static public function find_by_id($id){
 		$sql = "SELECT * FROM bicycles ";
-		$sql .= "WHERE id='". self:$database->escape_string($id) . "'";
+		$sql .= "WHERE id='". self::$database->escape_string($id) . "' ";
 		$obj_array = self::find_by_sql($sql);
 		if(!empty($obj_array)){
 			return array_shift($obj_array);
@@ -44,7 +45,7 @@ class Bicycle{
 		// but automatically assignment is easier and re-usable
 		foreach($record as $property => $value){
 			if(property_exists($object , $property)){
-				$object->property = $value;
+				$object->$property = $value;
 			}
 		}
 		return $object;
@@ -76,7 +77,7 @@ class Bicycle{
 	5 => 'Like New'
 	];
 	
-	public function __construct($args[]){
+	public function __construct($args=[]){
 		// $this->brand = isset($args['brand']) ? $args['brand'] : '';
 		$this->brand = $args['brand'] ?? '';
 		$this->model = $args['model'] ?? '';
@@ -94,6 +95,10 @@ class Bicycle{
 		// $this->$k = $v;	
 		//}	
 		//}
+	}
+	
+	public function name(){
+		return "{$this->brand} {$this->model} {$this->year}";
 	}
 	
 	public function weight_kg(){
